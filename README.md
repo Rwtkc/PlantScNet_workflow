@@ -67,6 +67,18 @@ ath.feather
 
 如果换成其他物种，需要准备同等内容，并保证 genome annotation、表达矩阵 gene ID、TF list、motif-to-TF 表和训练标签使用同一套或可映射的基因 ID。
 
+其中 `ath_tf.txt` 和 `ath.tbl` 应与 `ath.meme` 来自同一套 motif/TF 注释。PlantScNet 示例中从 MEME 文件的 `MOTIF` 行解析 TF gene ID 和 motif ID，并据此生成 pySCENIC 使用的 TF list、motif-to-TF table 以及 cisTarget 建库使用的 motif ID list：
+
+```bash
+Rscript scripts/cistarget/00_prepare_tf_list_and_motif2tf_from_meme.R \
+  --meme ath.meme \
+  --out-tbl ath.tbl \
+  --out-tf ath_tf.txt \
+  --out-motifs resources/ath/motif_ids.txt
+```
+
+该步骤用于保证 GRNBoost2 的 TF list、pySCENIC `ctx` 的 motif-to-TF 注释、scATAC motif-to-TF 映射和 cisTarget ranking database 使用一致的 motif/TF 命名。
+
 ### Step 2. 构建 promoter BED 和 promoter FASTA
 
 使用 GTF 和 genome FASTA 提取 strand-aware 2 kb upstream promoter：
