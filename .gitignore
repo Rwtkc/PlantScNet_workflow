@@ -1,0 +1,48 @@
+# Large biological inputs and generated outputs
+*.loom
+*.rds
+*.h5
+*.h5ad
+*.mtx
+*.mtx.gz
+*.fa
+*.fasta
+*.fa.gz
+*.fasta.gz
+*.gtf
+*.gff
+*.gff3
+*.bed
+*.bed.gz
+*.narrowPeak
+*.narrowPeak.gz
+*.feather
+*.cb
+*.meme
+*.meme.gz
+
+# Keep the Arabidopsis example resources provided with this workflow.
+!ath.feather
+!ath.meme
+!ath.tbl
+!ath_tf.txt
+!Arabidopsis_thaliana.TAIR10.63.gtf.gz
+!Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz
+
+# Model outputs
+*.json
+*.pkl
+*.model
+*.ubj
+final_regulatory_with_probability.tsv
+train_dataset.tsv
+fold_indices.tsv
+optuna_trials.tsv
+
+# Logs and local state
+*.log
+*.status
+*.tmp
+__pycache__/
+.Rhistory
+.RData

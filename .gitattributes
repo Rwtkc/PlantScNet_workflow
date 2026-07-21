@@ -1,0 +1,6 @@
+ath.feather filter=lfs diff=lfs merge=lfs -text
+Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz filter=lfs diff=lfs merge=lfs -text
+*.sh text eol=lf
+*.py text eol=lf
+*.R text eol=lf
+*.md text eol=lf
