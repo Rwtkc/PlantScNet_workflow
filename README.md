@@ -193,9 +193,9 @@ TF    target    importance_score
 
 ```text
 data/ath/atac/sample_001/enriched_peaks/
-├── sample_001_cluster_0_enriched_top10000.bed
-├── sample_001_cluster_1_enriched_top10000.bed
-└── sample_001_cluster_2_enriched_top8500.bed
+├── sample_001_cluster_0.bed
+├── sample_001_cluster_1.bed
+└── sample_001_cluster_2.bed
 ```
 
 每个 BED 文件为无表头、制表符分隔文本，至少包含三列：
@@ -207,7 +207,7 @@ Chr1     22430    22910
 Chr2     85100    85640
 ```
 
-文件名中的 cluster 编号用于标记该 peak set 的 cluster 来源。原始数据可以来自 H5、RDS、matrix/barcode/peak 文件或其他格式；只要最终整理为上述 BED 目录，即可进入下面的统一流程。
+文件名用于标记该 peak set 的 cluster 来源，不要求包含 peak 数量。原始数据可以来自 H5、RDS、matrix/barcode/peak 文件或其他格式；只要最终整理为上述 BED 目录，即可进入下面的统一流程。
 
 scATAC 网络构建还需要 promoter 注释和 motif hit 注释：
 
