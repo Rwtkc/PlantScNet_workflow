@@ -139,7 +139,17 @@ git clone https://github.com/aertslab/create_cisTarget_databases
 
 ### Step 4. 构建 scRNA 样本级网络
 
-每个 scRNA 样本先从 count matrix、features 和 barcodes 构建 Seurat 对象：
+公共 scRNA-seq/snRNA-seq 数据的原始下载格式可能不同。进入 PlantScNet scRNA 样本级网络流程前，需要先将每个样本整理为 10x-like 三件套：
+
+```text
+matrix.mtx
+features.tsv
+barcodes.tsv
+```
+
+其中 `matrix.mtx` 为 gene-by-cell count matrix，`features.tsv` 至少第一列为 gene ID，`barcodes.tsv` 第一列为 cell barcode。具体格式可直接参考 10x Genomics filtered feature-barcode matrix 的输出形式。
+
+每个 scRNA 样本先从整理后的 count matrix、features 和 barcodes 构建 Seurat 对象：
 
 ```bash
 Rscript scripts/rna_sample_network/01_prepare_seurat_object.R \
