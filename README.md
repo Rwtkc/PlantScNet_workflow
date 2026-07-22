@@ -292,10 +292,20 @@ TF    target    importance_score
 
 ### Step 7. 构建参考标签
 
-XGBoost 训练需要参考 TF-target 标签：
+XGBoost 训练需要参考 TF-target 标签，也就是用于模型训练和评估的 gold-standard/reference label file。本 release 不提供 `ath_reference_labels.tsv`；用户需要根据自己的物种和证据来源自行整理。
 
-- 拟南芥使用整理后的 Arabidopsis regulatory reference
-- 非拟南芥物种可通过 Arabidopsis-to-target BBH 或同源映射投影标签
+参考标签文件至少包含三列：
+
+```text
+TF    target    label
+AT1G01060    AT1G02010    1
+AT1G01250    AT1G03020    1
+AT1G01720    AT1G04030    0
+```
+
+其中 `label = 1` 表示 reference-supported TF-target pair，`label = 0` 表示用于训练的 negative/background pair。
+
+拟南芥可以整理物种内已有的 TF-target evidence 作为参考标签；非拟南芥物种可通过 orthology/BBH 映射从拟南芥或其他物种的 reference labels 投影得到候选训练标签。
 
 训练前必须检查：
 
